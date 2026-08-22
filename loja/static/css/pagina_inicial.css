@@ -1,0 +1,1797 @@
+/* =========================================================
+   CHURRASCARIA DO GORDINHO
+   LOJA.CSS
+   Sem JavaScript
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #111111;
+    padding-bottom: 90px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =========================================================
+   CHECKBOXES INVISÍVEIS
+========================================================= */
+
+#abrir-menu,
+#abrir-pesquisa {
+    display: none;
+}
+
+
+/* =========================================================
+   TOPO
+========================================================= */
+
+.topo {
+    width: 100%;
+    height: 120px;
+
+    background: #0d0d0d;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 45px;
+
+    color: white;
+
+    position: relative;
+    z-index: 1000;
+}
+
+
+/* =========================================================
+   MENU HAMBÚRGUER
+========================================================= */
+
+.menu-hamburguer {
+    width: 40px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+}
+
+.menu-hamburguer span {
+    width: 30px;
+    height: 4px;
+
+    background: white;
+
+    border-radius: 5px;
+
+    transition: 0.3s ease;
+}
+
+#abrir-menu:checked ~ .topo .menu-hamburguer span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 8px);
+}
+
+#abrir-menu:checked ~ .topo .menu-hamburguer span:nth-child(2) {
+    opacity: 0;
+}
+
+#abrir-menu:checked ~ .topo .menu-hamburguer span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -8px);
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo-area {
+    display: flex;
+    align-items: center;
+
+    flex: 0 0 auto;
+
+    margin-left: 10px;
+
+    height: 100%;
+}
+
+.logo-area img {
+    width: 95px;
+    height: 85px;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   AÇÕES DO TOPO
+========================================================= */
+
+.acoes {
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    margin-left: auto;
+}
+
+
+/* =========================================================
+   LUPA
+========================================================= */
+
+.botao-pesquisa {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.icone-pesquisa {
+    width: 27px;
+    height: 27px;
+
+    border: 4px solid white;
+
+    border-radius: 50%;
+
+    position: relative;
+
+    transition: 0.2s;
+}
+
+.icone-pesquisa::after {
+    content: "";
+
+    position: absolute;
+
+    width: 14px;
+    height: 4px;
+
+    background: white;
+
+    right: -11px;
+    bottom: -5px;
+
+    transform: rotate(48deg);
+
+    border-radius: 4px;
+}
+
+.botao-pesquisa:hover .icone-pesquisa {
+    transform: scale(1.1);
+}
+
+
+/* =========================================================
+   CARRINHO
+========================================================= */
+
+.carrinho {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 32px;
+
+    position: relative;
+
+    transition: 0.2s;
+}
+
+.carrinho:hover {
+    transform: scale(1.08);
+}
+
+.quantidade-carrinho {
+    position: absolute;
+
+    top: -7px;
+    right: -8px;
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+
+    background: #ff6900;
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   MENU LATERAL
+========================================================= */
+
+.menu-lateral {
+    position: fixed;
+
+    top: 0;
+    left: -350px;
+
+    width: 330px;
+    height: 100vh;
+
+    background: #101010;
+
+    color: white;
+
+    z-index: 3000;
+
+    transition: left 0.3s ease;
+
+    box-shadow: 5px 0 25px rgba(0, 0, 0, 0.5);
+
+    overflow-y: auto;
+}
+
+#abrir-menu:checked ~ .menu-lateral {
+    left: 0;
+}
+
+
+/* =========================================================
+   FUNDO DO MENU
+========================================================= */
+
+.fundo-menu {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    z-index: 2500;
+
+    cursor: pointer;
+}
+
+#abrir-menu:checked ~ .fundo-menu {
+    display: block;
+}
+
+
+/* =========================================================
+   FECHAR MENU
+========================================================= */
+
+.fechar-menu {
+    position: absolute;
+
+    top: 15px;
+    right: 20px;
+
+    font-size: 42px;
+
+    line-height: 1;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.fechar-menu:hover {
+    color: #ff6900;
+}
+
+
+/* =========================================================
+   PERFIL DO MENU
+========================================================= */
+
+.perfil-menu {
+    padding: 65px 25px 30px;
+
+    text-align: center;
+
+    border-bottom: 1px solid #333333;
+}
+
+.foto-perfil {
+    width: 80px;
+    height: 80px;
+
+    margin: 0 auto 15px;
+
+    border-radius: 50%;
+
+    background: #ff6900;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 38px;
+}
+
+.perfil-menu h2 {
+    font-size: 21px;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   LINKS DO MENU LATERAL
+========================================================= */
+
+.menu-lateral nav {
+    display: flex;
+    flex-direction: column;
+
+    padding: 15px 20px;
+}
+
+.menu-lateral nav a {
+    padding: 17px 10px;
+
+    border-bottom: 1px solid #303030;
+
+    color: white;
+
+    font-size: 18px;
+
+    transition: 0.2s;
+}
+
+.menu-lateral nav a:hover {
+    color: #ff6900;
+
+    background: #1b1b1b;
+
+    padding-left: 20px;
+}
+
+
+/* =========================================================
+   PESQUISA
+========================================================= */
+
+.area-pesquisa {
+    width: 100%;
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    background: #111111;
+
+    padding: 0 5%;
+
+    transition:
+        max-height 0.35s ease,
+        padding 0.35s ease;
+
+    position: relative;
+
+    z-index: 900;
+}
+
+#abrir-pesquisa:checked ~ .area-pesquisa {
+    max-height: 110px;
+
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.area-pesquisa form {
+    width: 100%;
+
+    display: flex;
+
+    gap: 10px;
+}
+
+.area-pesquisa input {
+    flex: 1;
+
+    height: 50px;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 12px;
+
+    padding: 0 18px;
+
+    font-size: 17px;
+}
+
+.area-pesquisa button {
+    width: 55px;
+
+    height: 50px;
+
+    background: #ff6900;
+
+    color: white;
+
+    border-radius: 12px;
+
+    font-size: 21px;
+
+    transition: 0.2s;
+}
+
+.area-pesquisa button:hover {
+    background: #e95700;
+}
+
+
+/* =========================================================
+   BANNER ENTREGA
+========================================================= */
+
+.banner-entrega {
+    width: 100%;
+
+    height: 90px;
+
+    background: linear-gradient(
+        90deg,
+        #ff6500,
+        #ff7a00
+    );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 80px;
+
+    color: white;
+}
+
+.entrega-conteudo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+}
+
+.entrega-moto {
+    font-size: 48px;
+}
+
+.texto-entrega {
+    display: flex;
+    flex-direction: column;
+}
+
+.texto-entrega strong {
+    font-size: 27px;
+}
+
+.texto-entrega span {
+    font-size: 21px;
+
+    margin-top: 4px;
+}
+
+.botao-aproveite {
+    background: #111111;
+
+    color: white;
+
+    padding: 15px 35px;
+
+    border-radius: 10px;
+
+    font-size: 19px;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.botao-aproveite:hover {
+    background: #222222;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   MENU DE CATEGORIAS
+========================================================= */
+
+.categorias {
+    width: 100%;
+
+    height: 78px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 10px 25px;
+
+    background: white;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 800;
+
+    border-bottom: 1px solid #eeeeee;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.categorias::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================================
+   BOTÕES DAS CATEGORIAS
+========================================================= */
+
+.categorias a {
+    position: relative;
+
+    white-space: nowrap;
+
+    padding: 13px 25px;
+
+    border-radius: 14px;
+
+    color: #222222;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.2s ease;
+}
+
+.categorias a:hover {
+    color: #ff6500;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   CATEGORIA ATIVA
+========================================================= */
+
+.categorias a.inicial {
+    background: #111111;
+
+    color: #ff6900;
+
+    font-weight: bold;
+}
+
+body:has(#destaques:target)
+.categorias a[href="#destaques"],
+
+body:has(#combos:target)
+.categorias a[href="#combos"],
+
+body:has(#carnes:target)
+.categorias a[href="#carnes"],
+
+body:has(#acompanhamentos:target)
+.categorias a[href="#acompanhamentos"],
+
+body:has(#bebidas:target)
+.categorias a[href="#bebidas"] {
+
+    background: #111111;
+
+    color: #ff6900;
+
+    font-weight: bold;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+body:has(#combos:target)
+.categorias a.inicial,
+
+body:has(#carnes:target)
+.categorias a.inicial,
+
+body:has(#acompanhamentos:target)
+.categorias a.inicial,
+
+body:has(#bebidas:target)
+.categorias a.inicial {
+
+    background: transparent;
+
+    color: #222222;
+}
+
+
+/* =========================================================
+   CONTEÚDO PRINCIPAL
+========================================================= */
+
+main {
+    width: 95%;
+
+    max-width: 1500px;
+
+    margin: auto;
+}
+
+
+/* =========================================================
+   BANNER PRINCIPAL
+========================================================= */
+
+.banner-principal {
+    width: 100%;
+
+    height: 355px;
+
+    margin-top: 20px;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    background: #111111;
+}
+
+.banner-principal img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   TEXTO DO BANNER
+========================================================= */
+
+.banner-principal::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.95) 0%,
+        rgba(0, 0, 0, 0.75) 35%,
+        rgba(0, 0, 0, 0.20) 70%,
+        transparent 100%
+    );
+}
+
+.banner-texto {
+    position: absolute;
+
+    z-index: 5;
+
+    left: 55px;
+
+    top: 55px;
+
+    color: white;
+}
+
+.banner-texto h1 {
+    font-size: 48px;
+
+    line-height: 1.05;
+
+    font-weight: 900;
+}
+
+.banner-texto h1 span {
+    color: #ff6500;
+}
+
+.banner-texto p {
+    margin-top: 20px;
+
+    font-size: 20px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   INDICADORES
+========================================================= */
+
+.indicadores {
+    position: absolute;
+
+    z-index: 10;
+
+    left: 50%;
+
+    bottom: 20px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    gap: 10px;
+}
+
+.indicadores span {
+    width: 13px;
+    height: 13px;
+
+    background: white;
+
+    border-radius: 50%;
+}
+
+.indicadores .ativo {
+    background: #ff6900;
+}
+
+
+/* =========================================================
+   DESTAQUES
+========================================================= */
+
+.produtos-section {
+    margin-top: 30px;
+
+    scroll-margin-top: 95px;
+}
+
+.produtos-section h2 {
+    font-size: 32px;
+
+    margin-bottom: 18px;
+}
+
+.produtos {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+/* =========================================================
+   PRODUTOS
+========================================================= */
+
+.produto {
+    position: relative;
+
+    min-width: 0;
+
+    padding-bottom: 5px;
+}
+
+.imagem-produto {
+    width: 100%;
+
+    height: 220px;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    position: relative;
+
+    background: #eeeeee;
+}
+
+.imagem-produto img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.3s ease;
+}
+
+.produto:hover .imagem-produto img {
+    transform: scale(1.04);
+}
+
+.desconto {
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+
+    padding: 8px 10px;
+
+    background: #ff6900;
+
+    color: white;
+
+    border-radius: 9px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+}
+
+.produto-info {
+    padding: 10px 5px;
+}
+
+.produto-info h3 {
+    font-size: 20px;
+
+    line-height: 1.25;
+
+    min-height: 50px;
+}
+
+.preco {
+    display: block;
+
+    color: #ff6500;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    margin-top: 7px;
+}
+
+
+/* =========================================================
+   CONTROLE - / +
+========================================================= */
+
+.controle-quantidade {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 11px;
+}
+
+.controle-quantidade form {
+    margin: 0;
+    padding: 0;
+}
+
+.controle-quantidade button {
+    width: 38px;
+    height: 38px;
+
+    background: #ff6900;
+
+    color: white;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+
+    line-height: 1;
+
+    transition: 0.2s;
+}
+
+.controle-quantidade button:hover {
+    background: #e95700;
+
+    transform: scale(1.08);
+}
+
+.controle-quantidade span {
+    min-width: 25px;
+
+    text-align: center;
+
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   SEÇÕES
+========================================================= */
+
+.categoria-section {
+    margin-top: 65px;
+
+    padding-top: 30px;
+
+    scroll-margin-top: 100px;
+
+    border-top: 1px solid #eeeeee;
+}
+
+.titulo-secao {
+    margin-bottom: 20px;
+}
+
+.titulo-secao h2 {
+    font-size: 32px;
+
+    margin-bottom: 5px;
+}
+
+.titulo-secao span {
+    color: #777777;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   LISTA
+========================================================= */
+
+.lista-produtos {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.card-categoria {
+    min-height: 150px;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    display: grid;
+
+    grid-template-columns: 180px 1fr auto;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding-right: 20px;
+
+    background: white;
+
+    transition: 0.25s;
+}
+
+.card-categoria:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.card-categoria > img {
+    width: 180px;
+    height: 150px;
+
+    object-fit: cover;
+}
+
+.card-categoria > div:nth-child(2) {
+    padding: 15px 0;
+}
+
+.card-categoria h3 {
+    font-size: 21px;
+
+    margin-bottom: 7px;
+}
+
+.card-categoria p {
+    color: #666666;
+
+    line-height: 1.4;
+
+    margin-bottom: 8px;
+}
+
+.card-categoria strong {
+    color: #ff6900;
+
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   CARDS SIMPLES
+========================================================= */
+
+.card-categoria.simples {
+    grid-template-columns: 90px 1fr auto;
+
+    padding: 15px 20px;
+}
+
+.icone-produto {
+    width: 75px;
+    height: 75px;
+
+    background: #fff0e7;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 34px;
+}
+
+
+/* =========================================================
+   MENU INFERIOR
+   BOTÃO FAZER PEDIDO
+========================================================= */
+
+.menu-inferior {
+    position: fixed;
+
+    bottom: 20px;
+    right: 20px;
+
+    width: auto;
+    height: auto;
+
+    background: transparent;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    z-index: 999;
+}
+
+.botao-fazer-pedido {
+    width: 200px;
+    height: 55px;
+
+    background: #ff6900;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    border-radius: 12px;
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+
+    transition: 0.2s ease;
+}
+
+.botao-fazer-pedido:hover {
+    background: #e95700;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.botao-fazer-pedido:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .topo {
+        padding: 0 30px;
+    }
+
+    .logo-area {
+        margin-left: 10px;
+    }
+
+    .logo-area img {
+        width: 85px;
+        height: 75px;
+    }
+
+    .banner-entrega {
+        padding: 0 40px;
+    }
+
+    .produtos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-categoria {
+        grid-template-columns: 150px 1fr auto;
+    }
+
+    .card-categoria > img {
+        width: 150px;
+    }
+}
+
+
+/* =========================================================
+   TABLET PEQUENO
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .topo {
+        height: 100px;
+
+        padding: 0 25px;
+    }
+
+    .menu-hamburguer {
+        width: 32px;
+    }
+
+    .menu-hamburguer span {
+        width: 28px;
+        height: 3px;
+    }
+
+    .logo-area {
+        margin-left: 8px;
+    }
+
+    .logo-area img {
+        width: 78px;
+        height: 70px;
+    }
+
+    .banner-entrega {
+        padding: 0 25px;
+    }
+
+    .texto-entrega strong {
+        font-size: 22px;
+    }
+
+    .texto-entrega span {
+        font-size: 17px;
+    }
+
+    .botao-aproveite {
+        font-size: 16px;
+
+        padding: 13px 24px;
+    }
+
+    .categorias {
+        justify-content: flex-start;
+    }
+
+    .banner-principal {
+        height: 320px;
+    }
+
+    .banner-texto h1 {
+        font-size: 42px;
+    }
+
+    .card-categoria {
+        grid-template-columns: 140px 1fr;
+    }
+
+    .card-categoria > img {
+        width: 140px;
+        height: 140px;
+    }
+
+    .card-categoria .controle-quantidade {
+        grid-column: 1 / -1;
+
+        justify-content: flex-end;
+
+        padding-bottom: 10px;
+    }
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding-bottom: 20px;
+    }
+
+    .topo {
+        height: 82px;
+
+        padding: 0 16px;
+    }
+
+    .menu-hamburguer {
+        width: 28px;
+
+        gap: 6px;
+    }
+
+    .menu-hamburguer span {
+        width: 25px;
+        height: 3px;
+    }
+
+    .logo-area {
+        margin-left: 7px;
+
+        height: 82px;
+
+        flex: 0 0 auto;
+    }
+
+    .logo-area img {
+        width: 65px;
+        height: 62px;
+
+        object-fit: contain;
+    }
+
+    .acoes {
+        gap: 8px;
+
+        margin-left: auto;
+    }
+
+    .botao-pesquisa {
+        width: 38px;
+        height: 38px;
+    }
+
+    .icone-pesquisa {
+        width: 23px;
+        height: 23px;
+
+        border-width: 3px;
+    }
+
+    .icone-pesquisa::after {
+        width: 11px;
+        height: 3px;
+
+        right: -9px;
+        bottom: -5px;
+    }
+
+    .carrinho {
+        width: 38px;
+        height: 38px;
+
+        font-size: 27px;
+    }
+
+    .quantidade-carrinho {
+        width: 23px;
+        height: 23px;
+
+        font-size: 11px;
+    }
+
+    .menu-lateral {
+        width: 290px;
+    }
+
+    .banner-entrega {
+        height: 75px;
+
+        padding: 0 14px;
+    }
+
+    .entrega-conteudo {
+        gap: 8px;
+    }
+
+    .entrega-moto {
+        font-size: 30px;
+    }
+
+    .texto-entrega strong {
+        font-size: 15px;
+    }
+
+    .texto-entrega span {
+        font-size: 12px;
+    }
+
+    .botao-aproveite {
+        font-size: 12px;
+
+        padding: 10px 12px;
+    }
+
+    .categorias {
+        height: 67px;
+
+        justify-content: flex-start;
+
+        gap: 6px;
+
+        padding: 8px 12px;
+
+        top: 0;
+    }
+
+    .categorias a {
+        font-size: 13px;
+
+        padding: 11px 16px;
+
+        border-radius: 13px;
+    }
+
+    main {
+        width: 94%;
+    }
+
+    .banner-principal {
+        height: 255px;
+
+        margin-top: 15px;
+
+        border-radius: 18px;
+    }
+
+    .banner-texto {
+        left: 24px;
+
+        top: 35px;
+    }
+
+    .banner-texto h1 {
+        font-size: 30px;
+    }
+
+    .banner-texto p {
+        font-size: 14px;
+
+        margin-top: 12px;
+    }
+
+    .produtos-section {
+        margin-top: 25px;
+
+        scroll-margin-top: 80px;
+    }
+
+    .produtos-section h2 {
+        font-size: 25px;
+    }
+
+    .produtos {
+        grid-template-columns: 1fr;
+
+        gap: 28px;
+    }
+
+    .imagem-produto {
+        height: 230px;
+
+        border-radius: 17px;
+    }
+
+    .produto-info h3 {
+        font-size: 19px;
+
+        min-height: auto;
+    }
+
+    .preco {
+        font-size: 22px;
+    }
+
+    .produto .controle-quantidade {
+        justify-content: flex-end;
+
+        margin-top: -45px;
+
+        margin-right: 5px;
+
+        position: relative;
+
+        z-index: 20;
+    }
+
+    .controle-quantidade {
+        gap: 9px;
+    }
+
+    .controle-quantidade button {
+        width: 35px;
+        height: 35px;
+
+        font-size: 22px;
+    }
+
+    .categoria-section {
+        margin-top: 50px;
+
+        padding-top: 25px;
+
+        scroll-margin-top: 85px;
+    }
+
+    .titulo-secao h2 {
+        font-size: 26px;
+    }
+
+    .titulo-secao span {
+        font-size: 14px;
+    }
+
+    .card-categoria {
+        grid-template-columns: 110px 1fr;
+
+        gap: 12px;
+
+        padding: 0 10px 10px 0;
+
+        border-radius: 15px;
+    }
+
+    .card-categoria > img {
+        width: 110px;
+        height: 120px;
+    }
+
+    .card-categoria > div:nth-child(2) {
+        padding: 10px 0;
+    }
+
+    .card-categoria h3 {
+        font-size: 17px;
+    }
+
+    .card-categoria p {
+        font-size: 13px;
+    }
+
+    .card-categoria strong {
+        font-size: 18px;
+    }
+
+    .card-categoria .controle-quantidade {
+        grid-column: 1 / -1;
+
+        justify-content: flex-end;
+    }
+
+    .card-categoria.simples {
+        grid-template-columns: 65px 1fr;
+
+        padding: 12px;
+    }
+
+    .icone-produto {
+        width: 60px;
+        height: 60px;
+
+        font-size: 28px;
+    }
+
+
+    /* =====================================================
+       BOTÃO FAZER PEDIDO NO CELULAR
+    ===================================================== */
+
+    .menu-inferior {
+        bottom: 15px;
+        right: 15px;
+
+        width: auto;
+        height: auto;
+
+        padding: 0;
+
+        background: transparent;
+    }
+
+    .botao-fazer-pedido {
+        width: 175px;
+        height: 50px;
+
+        font-size: 15px;
+
+        border-radius: 10px;
+    }
+}
+
+
+/* =========================================================
+   CELULAR PEQUENO
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .logo-area img {
+        width: 58px;
+        height: 55px;
+    }
+
+    .logo-area {
+        margin-left: 6px;
+    }
+
+    .acoes {
+        gap: 4px;
+    }
+
+    .entrega-moto {
+        display: none;
+    }
+
+    .botao-aproveite {
+        font-size: 11px;
+
+        padding: 9px 10px;
+    }
+
+    .banner-principal {
+        height: 235px;
+    }
+
+    .banner-texto h1 {
+        font-size: 27px;
+    }
+
+    .categorias a {
+        font-size: 12px;
+
+        padding: 10px 13px;
+    }
+
+    .botao-fazer-pedido {
+        width: 165px;
+        height: 48px;
+
+        font-size: 14px;
+    }
+
+    .menu-inferior {
+        bottom: 12px;
+        right: 12px;
+    }
+}
+
+
+/* =========================================================
+   FOTO DE PERFIL
+========================================================= */
+
+.foto-perfil {
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #fff;
+}
+
+.foto-perfil img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   GARANTIA DO MENU INFERIOR
+========================================================= */
+
+.menu-inferior {
+    position: fixed;
+
+    bottom: 20px;
+    right: 20px;
+
+    width: auto;
+    height: auto;
+
+    background: transparent !important;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 !important;
+
+    z-index: 9999;
+}
+
+.botao-fazer-pedido {
+    width: 200px;
+    height: 55px;
+
+    background: #ff6900;
+
+    color: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    border-radius: 12px;
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+
+    transition: 0.2s ease;
+}
+
+.botao-fazer-pedido:hover {
+    background: #e95700;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.botao-fazer-pedido:active {
+    transform: scale(0.97);
+}
+
+
+@media (max-width: 600px) {
+
+    .menu-inferior {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .botao-fazer-pedido {
+        width: 175px;
+        height: 50px;
+
+        font-size: 15px;
+
+        border-radius: 10px;
+    }
+}
+
+
+@media (max-width: 400px) {
+
+    .menu-inferior {
+        bottom: 12px;
+        right: 12px;
+    }
+
+    .botao-fazer-pedido {
+        width: 165px;
+        height: 48px;
+
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,885 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #111111;
+}
+
+
+/* =========================================
+   CABEÇALHO
+========================================= */
+
+.topo {
+    width: 100%;
+    height: 140px;
+
+    background: #050505;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-bottom: 5px solid #eeeeee;
+}
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    color: #ffffff;
+}
+
+.logo-icone {
+    font-size: 58px;
+    line-height: 1;
+}
+
+.logo-texto {
+    display: flex;
+    flex-direction: column;
+
+    line-height: 1;
+}
+
+.logo-texto strong {
+    font-size: 35px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.logo-texto span {
+    margin-top: 5px;
+
+    color: #ff5a00;
+
+    font-size: 34px;
+    font-weight: 900;
+}
+
+
+/* =========================================
+   CONTAINER PRINCIPAL
+========================================= */
+
+.container {
+    width: 100%;
+
+    max-width: 1500px;
+
+    margin: 0 auto;
+
+    padding: 25px 25px 40px;
+
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) 285px;
+
+    gap: 18px;
+
+    align-items: start;
+}
+
+
+/* =========================================
+   ÁREA DOS PEDIDOS
+========================================= */
+
+.area-pedidos {
+    min-width: 0;
+}
+
+
+/* =========================================
+   TÍTULO DOS PEDIDOS
+========================================= */
+
+.titulo-pedidos {
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    margin: 0 0 22px 10px;
+}
+
+.icone-titulo {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #ff5a00;
+
+    font-size: 40px;
+
+    font-weight: bold;
+}
+
+.titulo-pedidos h1 {
+    font-size: 28px;
+
+    font-weight: 900;
+
+    color: #111111;
+}
+
+.titulo-pedidos p {
+    margin-top: 7px;
+
+    font-size: 17px;
+
+    color: #666666;
+}
+
+
+/* =========================================
+   CABEÇALHO DA TABELA
+========================================= */
+
+.tabela-cabecalho {
+    width: 100%;
+
+    min-height: 52px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.55fr
+        1.45fr
+        0.72fr
+        0.72fr
+        0.72fr;
+
+    align-items: center;
+
+    background: #050505;
+
+    color: #ffffff;
+
+    border-radius: 12px 12px 0 0;
+
+    padding: 0 18px;
+}
+
+.tabela-cabecalho div {
+    font-size: 14px;
+
+    font-weight: 700;
+
+    text-align: left;
+}
+
+
+/* =========================================
+   PEDIDO
+========================================= */
+
+.pedido {
+    width: 100%;
+
+    min-height: 175px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.55fr
+        1.45fr
+        0.72fr
+        0.72fr
+        0.72fr;
+
+    align-items: center;
+
+    background: #ffffff;
+
+    border: 1px solid #eeeeee;
+
+    border-top: none;
+
+    border-radius: 0;
+
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.06);
+
+    margin-bottom: 14px;
+
+    overflow: hidden;
+}
+
+.pedido:first-of-type {
+    border-radius: 0 0 12px 12px;
+}
+
+
+/* =========================================
+   CLIENTE
+========================================= */
+
+.cliente {
+    min-height: 140px;
+
+    padding: 20px 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    border-right: 1px solid #eeeeee;
+}
+
+.cliente-nome {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 13px;
+}
+
+.cliente-nome strong {
+    font-size: 17px;
+
+    font-weight: 800;
+
+    color: #111111;
+}
+
+.icone-pessoa {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #000000;
+
+    color: #ffffff;
+
+    border-radius: 50%;
+
+    font-size: 17px;
+}
+
+.mesa {
+    color: #ed4f0b;
+
+    font-size: 16px;
+
+    margin-left: 44px;
+
+    margin-bottom: 13px;
+}
+
+.garcom {
+    color: #666666;
+
+    font-size: 15px;
+
+    margin-left: 44px;
+}
+
+
+/* =========================================
+   ITENS
+========================================= */
+
+.itens {
+    min-height: 140px;
+
+    padding: 20px 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    border-right: 1px solid #eeeeee;
+}
+
+.itens p {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 11px;
+
+    font-size: 13px;
+
+    color: #222222;
+
+    white-space: nowrap;
+}
+
+.itens p strong {
+    min-width: 20px;
+
+    font-size: 13px;
+}
+
+.total-itens {
+    margin-top: 3px;
+
+    color: #ed4f0b;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   VALOR
+========================================= */
+
+.valor {
+    min-height: 140px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 10px;
+
+    border-right: 1px solid #eeeeee;
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    color: #111111;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   HORA
+========================================= */
+
+.hora {
+    min-height: 140px;
+
+    padding: 10px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-right: 1px solid #eeeeee;
+
+    gap: 10px;
+}
+
+.hora strong {
+    font-size: 14px;
+
+    color: #111111;
+}
+
+.hora span {
+    font-size: 13px;
+
+    color: #444444;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   AÇÃO
+========================================= */
+
+.acao {
+    min-height: 140px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 10px;
+}
+
+.acao button {
+    width: 92px;
+
+    min-height: 60px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #050505;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    line-height: 1.3;
+
+    transition: 0.2s ease;
+}
+
+.acao button span {
+    display: inline-block;
+
+    margin-right: 5px;
+
+    font-size: 17px;
+}
+
+.acao button:hover {
+    background: #ff5a00;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   HISTÓRICO
+========================================= */
+
+.historico {
+    width: 100%;
+
+    height: 62px;
+
+    margin-top: 2px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #050505;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.2px;
+
+    transition: 0.2s ease;
+}
+
+.historico span {
+    margin-right: 12px;
+
+    font-size: 21px;
+}
+
+.historico:hover {
+    background: #ff5a00;
+}
+
+
+/* =========================================
+   PAINEL DE ATALHOS
+========================================= */
+
+.atalhos {
+    width: 100%;
+
+    min-height: 900px;
+
+    padding: 30px 18px;
+
+    background: #050505;
+
+    border-radius: 13px;
+
+    color: #ffffff;
+}
+
+.atalhos h2 {
+    margin: 0 0 42px 2px;
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.3px;
+}
+
+
+/* =========================================
+   BOTÕES DOS ATALHOS
+========================================= */
+
+.atalho {
+    width: 100%;
+
+    min-height: 76px;
+
+    margin-bottom: 12px;
+
+    padding: 12px 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    background: #050505;
+
+    border: 1px solid #444444;
+
+    border-radius: 11px;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    font-size: 15px;
+
+    transition: 0.2s ease;
+}
+
+.atalho:hover {
+    border-color: #ff5a00;
+
+    background: #111111;
+
+    transform: translateY(-2px);
+}
+
+
+/* ÍCONE */
+
+.atalho-icone {
+    min-width: 31px;
+
+    color: #ff5a00;
+
+    font-size: 28px;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   BOTÃO ECONOMIA
+========================================= */
+
+.atalho.economia {
+    margin-top: 14px;
+
+    border-color: #ff5a00;
+}
+
+.atalho.economia:hover {
+    background: #ff5a00;
+
+    color: #ffffff;
+}
+
+.atalho.economia:hover .atalho-icone {
+    color: #ffffff;
+}
+
+
+/* =========================================
+   EDITAR PRODUTOS
+========================================= */
+
+.atalho.editar {
+    margin-top: 12px;
+
+    border-color: #555555;
+}
+
+.atalho.editar .atalho-icone {
+    font-size: 25px;
+}
+
+.atalho.editar:hover {
+    border-color: #ff5a00;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .container {
+        grid-template-columns: minmax(0, 1fr) 250px;
+
+        gap: 12px;
+
+        padding: 20px 15px;
+    }
+
+    .tabela-cabecalho,
+    .pedido {
+        grid-template-columns:
+            1.45fr
+            1.35fr
+            0.65fr
+            0.65fr
+            0.65fr;
+    }
+
+    .cliente-nome strong {
+        font-size: 15px;
+    }
+
+    .itens p {
+        font-size: 12px;
+    }
+
+    .valor {
+        font-size: 15px;
+    }
+
+    .atalhos {
+        padding: 25px 14px;
+    }
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 850px) {
+
+    .topo {
+        height: 110px;
+    }
+
+    .logo-texto strong {
+        font-size: 27px;
+    }
+
+    .logo-texto span {
+        font-size: 27px;
+    }
+
+    .logo-icone {
+        font-size: 45px;
+    }
+
+    .container {
+        display: block;
+
+        padding: 20px 12px;
+    }
+
+    .atalhos {
+        min-height: auto;
+
+        margin-top: 25px;
+
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+    }
+
+    .atalhos h2 {
+        grid-column: 1 / -1;
+
+        margin-bottom: 5px;
+    }
+
+    .atalho {
+        margin: 0;
+    }
+
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 650px) {
+
+    .topo {
+        height: 95px;
+    }
+
+    .logo {
+        gap: 7px;
+    }
+
+    .logo-icone {
+        font-size: 35px;
+    }
+
+    .logo-texto strong {
+        font-size: 20px;
+    }
+
+    .logo-texto span {
+        font-size: 20px;
+    }
+
+
+    .titulo-pedidos {
+        margin-left: 0;
+
+        gap: 10px;
+    }
+
+    .icone-titulo {
+        font-size: 32px;
+    }
+
+    .titulo-pedidos h1 {
+        font-size: 21px;
+    }
+
+    .titulo-pedidos p {
+        font-size: 14px;
+    }
+
+
+    /*
+       No celular transformamos
+       cada pedido em um card.
+    */
+
+    .tabela-cabecalho {
+        display: none;
+    }
+
+    .pedido {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        min-height: auto;
+
+        border: 1px solid #eeeeee;
+
+        border-radius: 12px;
+
+        margin-bottom: 15px;
+    }
+
+    .cliente,
+    .itens,
+    .valor,
+    .hora,
+    .acao {
+        width: 100%;
+
+        min-height: auto;
+
+        border-right: none;
+
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .cliente {
+        padding: 18px;
+    }
+
+    .itens {
+        padding: 18px;
+    }
+
+    .valor {
+        justify-content: flex-start;
+
+        padding: 18px;
+    }
+
+    .hora {
+        align-items: flex-start;
+
+        padding: 18px;
+    }
+
+    .acao {
+        padding: 18px;
+
+        border-bottom: none;
+
+        justify-content: flex-start;
+    }
+
+    .acao button {
+        width: 100%;
+    }
+
+
+    .historico {
+        height: 58px;
+
+        font-size: 14px;
+    }
+
+
+    .atalhos {
+        display: block;
+
+        padding: 22px 15px;
+    }
+
+    .atalhos h2 {
+        margin-bottom: 20px;
+    }
+
+    .atalho {
+        min-height: 65px;
+
+        margin-bottom: 10px;
+    }
+
+}

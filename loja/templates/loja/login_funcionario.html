@@ -1,0 +1,253 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Área do Funcionário</title>
+
+    <link rel="stylesheet" href="{% static 'css/login_funcionario.css' %}">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         LADO ESQUERDO
+    ====================================================== -->
+
+    <section class="lado-esquerdo">
+
+        <!-- ÍCONE -->
+        <div class="icone-funcionario">
+            🔥
+        </div>
+
+        <!-- TÍTULO -->
+        <h1>
+            Área do
+            <span>Funcionário</span>
+        </h1>
+
+        <!-- LINHA -->
+        <div class="linha-laranja"></div>
+
+        <!-- DESCRIÇÃO -->
+        <p>
+            Faça login para acessar
+            <br>
+            o sistema da churrascaria.
+        </p>
+
+
+        <!-- ILUSTRAÇÃO -->
+        <div class="ilustracao-funcionario">
+
+            <!-- FOGO -->
+            <div class="fogo">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- CHURRASQUEIRO -->
+            <div class="churrasqueiro">
+
+                <!-- CABEÇA -->
+                <div class="cabeca"></div>
+
+                <!-- TOUCA -->
+                <div class="touca"></div>
+
+                <!-- CORPO -->
+                <div class="corpo"></div>
+
+                <!-- BRAÇO -->
+                <div class="braco"></div>
+
+                <!-- TÁBUA -->
+                <div class="tabua"></div>
+
+                <!-- CARNE -->
+                <div class="carne carne-1"></div>
+                <div class="carne carne-2"></div>
+
+                <!-- FACA -->
+                <div class="faca"></div>
+
+            </div>
+
+            <!-- CHÃO -->
+            <div class="chao"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CARD DE LOGIN
+    ====================================================== -->
+
+    <main class="card-login">
+
+
+        <!-- =================================================
+             CABEÇALHO
+        ================================================== --> 
+
+
+        <div class="cabecalho">
+
+            <h2>
+                Login do
+                <span>Funcionário</span>
+            </h2>
+
+            <div class="traco"></div>
+
+            <p>
+                Digite suas credenciais para acessar
+                <br class="quebra-desktop">
+                o sistema da churrascaria.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             FORMULÁRIO
+        ================================================== -->
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+
+            <!-- E-MAIL -->
+            <div class="campo">
+
+                <label for="email">
+                    E-mail da churrascaria
+                </label>
+
+                <div class="input-box">
+
+                    <span class="icone-input">
+                        ✉
+                    </span>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="email churrascaria"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- SENHA -->
+            <div class="campo">
+
+                <label for="senha">
+                    Senha
+                </label>
+
+                <div class="input-box">
+
+                    <span class="icone-input cadeado">
+                        🔒
+                    </span>
+
+                    <input
+                        type="password"
+                        id="senha"
+                        name="senha"
+                        placeholder="Digite a senha"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- BOTÃO ENTRAR -->
+            <a 
+                href="{% url 'funcionario' %}" 
+                class="btn-entrar"
+            >
+                <span>
+                    Entrar
+                </span>
+
+                <strong>
+                    →
+                </strong>
+            </a>
+
+        </form>
+
+
+        <!-- =================================================
+             SEPARADOR
+        ================================================== -->
+
+        <div class="separador">
+
+            <span></span>
+
+            <p>
+                acesso restrito
+            </p>
+
+            <span></span>
+
+        </div>
+
+
+        <!-- =================================================
+             AVISO
+        ================================================== -->
+
+        <div class="aviso">
+
+            <span class="icone-seguranca">
+                🔒
+            </span>
+
+            <span>
+                Área exclusiva para funcionários
+            </span>
+
+        </div>
+
+
+        <!-- =================================================
+             VOLTAR
+        ================================================== -->
+
+        <a
+            href="{% url 'inicio' %}"
+            class="voltar"
+        >
+            <span class="seta-voltar">←</span>
+
+            <span>
+                Voltar ao início
+            </span>
+        </a>
+
+
+    </main>
+
+
+</body>
+
+</html>

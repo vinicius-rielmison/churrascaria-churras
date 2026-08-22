@@ -1,0 +1,619 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Painel do Funcionário</title>
+
+    <link rel="stylesheet" href="{% static 'css/fun.css' %}">
+</head>
+
+<body>
+
+    <!-- =========================
+         CABEÇALHO
+    ========================== -->
+    <header class="topo">
+
+        <div class="logo">
+            <div class="logo-icone">
+                🔥
+            </div>
+
+            <div class="logo-texto">
+                <strong>CHURRASQUEIRA</strong>
+                <span>DO GORDINHO</span>
+            </div>
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         CONTEÚDO
+    ========================== -->
+    <main class="container">
+
+        <!-- =========================
+             PARTE ESQUERDA
+        ========================== -->
+        <section class="area-pedidos">
+
+            <!-- TÍTULO -->
+            <div class="titulo-pedidos">
+
+                <div class="icone-titulo">
+                    ♧
+                </div>
+
+                <div>
+                    <h1>PEDIDOS RECEBIDOS</h1>
+
+                    <p>
+                        Pedidos realizados pelos garçons
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 CABEÇALHO DA TABELA
+            ========================== -->
+            <div class="tabela-cabecalho">
+
+                <div>CLIENTE / MESA</div>
+
+                <div>ITENS</div>
+
+                <div>TOTAL</div>
+
+                <div>HORA</div>
+
+                <div>AÇÃO</div>
+
+            </div>
+
+
+            <!-- =========================
+                 PEDIDO 1
+            ========================== -->
+            <article class="pedido">
+
+                <div class="cliente">
+
+                    <div class="cliente-nome">
+                        <span class="icone-pessoa">●</span>
+
+                        <strong>
+                            João da Silva
+                        </strong>
+                    </div>
+
+                    <strong class="mesa">
+                        Mesa: 05
+                    </strong>
+
+                    <span class="garcom">
+                        Garçom: Carlos
+                    </span>
+
+                </div>
+
+
+                <div class="itens">
+
+                    <p>
+                        <strong>2x</strong>
+                        Espetinho de Carne
+                    </p>
+
+                    <p>
+                        <strong>1x</strong>
+                        Espetinho de Frango
+                    </p>
+
+                    <p>
+                        <strong>1x</strong>
+                        Espetinho de Linguiça
+                    </p>
+
+                    <span class="total-itens">
+                        Total de 4 itens
+                    </span>
+
+                </div>
+
+
+                <div class="valor">
+                    R$ 36,60
+                </div>
+
+
+                <div class="hora">
+                    <strong>14:35</strong>
+
+                    <span>
+                        17/05/2025
+                    </span>
+                </div>
+
+
+                <div class="acao">
+
+                    <button>
+                        <span>▣</span>
+                        Imprimir<br>
+                        nota
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================
+                 PEDIDO 2
+            ========================== -->
+            <article class="pedido">
+
+                <div class="cliente">
+
+                    <div class="cliente-nome">
+                        <span class="icone-pessoa">●</span>
+
+                        <strong>
+                            Maria Oliveira
+                        </strong>
+                    </div>
+
+                    <strong class="mesa">
+                        Mesa: 12
+                    </strong>
+
+                    <span class="garcom">
+                        Garçom: Ana
+                    </span>
+
+                </div>
+
+
+                <div class="itens">
+
+                    <p>
+                        <strong>3x</strong>
+                        Espetinho de Carne
+                    </p>
+
+                    <p>
+                        <strong>1x</strong>
+                        Espetinho de Coração
+                    </p>
+
+                    <p>
+                        <strong>2x</strong>
+                        Espetinho de Queijo
+                    </p>
+
+                    <span class="total-itens">
+                        Total de 6 itens
+                    </span>
+
+                </div>
+
+
+                <div class="valor">
+                    R$ 55,40
+                </div>
+
+
+                <div class="hora">
+                    <strong>14:28</strong>
+
+                    <span>
+                        17/05/2025
+                    </span>
+                </div>
+
+
+                <div class="acao">
+
+                    <button>
+                        <span>▣</span>
+                        Imprimir<br>
+                        nota
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================
+                 PEDIDO 3
+            ========================== -->
+            <article class="pedido">
+
+                <div class="cliente">
+
+                    <div class="cliente-nome">
+                        <span class="icone-pessoa">●</span>
+
+                        <strong>
+                            Pedro Santos
+                        </strong>
+                    </div>
+
+                    <strong class="mesa">
+                        Mesa: 03
+                    </strong>
+
+                    <span class="garcom">
+                        Garçom: Lucas
+                    </span>
+
+                </div>
+
+
+                <div class="itens">
+
+                    <p>
+                        <strong>1x</strong>
+                        Espetinho de Frango
+                    </p>
+
+                    <p>
+                        <strong>1x</strong>
+                        Espetinho de Linguiça
+                    </p>
+
+                    <span class="total-itens">
+                        Total de 2 itens
+                    </span>
+
+                </div>
+
+
+                <div class="valor">
+                    R$ 16,80
+                </div>
+
+
+                <div class="hora">
+                    <strong>14:20</strong>
+
+                    <span>
+                        17/05/2025
+                    </span>
+                </div>
+
+
+                <div class="acao">
+
+                    <button>
+                        <span>▣</span>
+                        Imprimir<br>
+                        nota
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================
+                 PEDIDO 4
+            ========================== -->
+            <article class="pedido">
+
+                <div class="cliente">
+
+                    <div class="cliente-nome">
+                        <span class="icone-pessoa">●</span>
+
+                        <strong>
+                            Fernanda Lima
+                        </strong>
+                    </div>
+
+                    <strong class="mesa">
+                        Mesa: 08
+                    </strong>
+
+                    <span class="garcom">
+                        Garçom: Carlos
+                    </span>
+
+                </div>
+
+
+                <div class="itens">
+
+                    <p>
+                        <strong>2x</strong>
+                        Espetinho de Carne
+                    </p>
+
+                    <p>
+                        <strong>1x</strong>
+                        Espetinho de Queijo
+                    </p>
+
+                    <p>
+                        <strong>1x</strong>
+                        Espetinho de Coração
+                    </p>
+
+                    <span class="total-itens">
+                        Total de 4 itens
+                    </span>
+
+                </div>
+
+
+                <div class="valor">
+                    R$ 36,60
+                </div>
+
+
+                <div class="hora">
+                    <strong>14:15</strong>
+
+                    <span>
+                        17/05/2025
+                    </span>
+                </div>
+
+
+                <div class="acao">
+
+                    <button>
+                        <span>▣</span>
+                        Imprimir<br>
+                        nota
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================
+                 PEDIDO 5
+            ========================== -->
+            <article class="pedido">
+
+                <div class="cliente">
+
+                    <div class="cliente-nome">
+                        <span class="icone-pessoa">●</span>
+
+                        <strong>
+                            Carlos Henrique
+                        </strong>
+                    </div>
+
+                    <strong class="mesa">
+                        Mesa: 10
+                    </strong>
+
+                    <span class="garcom">
+                        Garçom: Ana
+                    </span>
+
+                </div>
+
+
+                <div class="itens">
+
+                    <p>
+                        <strong>2x</strong>
+                        Espetinho de Frango
+                    </p>
+
+                    <p>
+                        <strong>1x</strong>
+                        Espetinho de Queijo
+                    </p>
+
+                    <p>
+                        <strong>1x</strong>
+                        Espetinho de Linguiça
+                    </p>
+
+                    <span class="total-itens">
+                        Total de 4 itens
+                    </span>
+
+                </div>
+
+
+                <div class="valor">
+                    R$ 34,60
+                </div>
+
+
+                <div class="hora">
+                    <strong>14:10</strong>
+
+                    <span>
+                        17/05/2025
+                    </span>
+                </div>
+
+
+                <div class="acao">
+
+                    <button>
+                        <span>▣</span>
+                        Imprimir<br>
+                        nota
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================
+                 PEDIDO 6
+            ========================== -->
+            <article class="pedido">
+
+                <div class="cliente">
+
+                    <div class="cliente-nome">
+                        <span class="icone-pessoa">●</span>
+
+                        <strong>
+                            Beatriz Souza
+                        </strong>
+                    </div>
+
+                    <strong class="mesa">
+                        Mesa: 02
+                    </strong>
+
+                    <span class="garcom">
+                        Garçom: Lucas
+                    </span>
+
+                </div>
+
+
+                <div class="itens">
+
+                    <p>
+                        <strong>1x</strong>
+                        Espetinho de Carne
+                    </p>
+
+                    <p>
+                        <strong>1x</strong>
+                        Espetinho de Coração
+                    </p>
+
+                    <span class="total-itens">
+                        Total de 2 itens
+                    </span>
+
+                </div>
+
+
+                <div class="valor">
+                    R$ 17,70
+                </div>
+
+
+                <div class="hora">
+                    <strong>14:02</strong>
+
+                    <span>
+                        17/05/2025
+                    </span>
+                </div>
+
+
+                <div class="acao">
+
+                    <button>
+                        <span>▣</span>
+                        Imprimir<br>
+                        nota
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- =========================
+                 HISTÓRICO
+            ========================== -->
+            <button class="historico">
+
+                <span>▣</span>
+
+                VER HISTÓRICO DE PEDIDOS
+
+            </button>
+
+        </section>
+
+
+        <!-- =========================
+             PAINEL DIREITO
+        ========================== -->
+        <aside class="atalhos">
+
+            <h2>
+                ATALHOS
+            </h2>
+
+
+            <!-- RELATÓRIO -->
+            <button class="atalho">
+
+                <span class="atalho-icone">
+                    ▣
+                </span>
+
+                <span>
+                    Imprimir relatório do dia
+                </span>
+
+            </button>
+
+
+            <!-- FECHAR CAIXA -->
+            <button class="atalho">
+
+                <span class="atalho-icone">
+                    ▤
+                </span>
+
+                <span>
+                    Fechar caixa do dia
+                </span>
+
+            </button>
+
+
+            <!-- VER ECONOMIA -->
+            <button class="atalho economia">
+
+                <span class="atalho-icone">
+                    ↗
+                </span>
+
+                <span>
+                    Ver economia
+                </span>
+
+            </button>
+
+
+            <!-- EDITAR PRODUTOS -->
+            <button class="atalho editar">
+
+                <span class="atalho-icone">
+                    ✎
+                </span>
+
+                <span>
+                    Editar produtos
+                </span>
+
+            </button>
+
+        </aside>
+
+    </main>
+
+</body>
+
+</html>

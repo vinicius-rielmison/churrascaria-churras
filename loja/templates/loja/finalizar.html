@@ -1,0 +1,369 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Finalizar Pedido</title>
+
+    <link rel="stylesheet" href="{% static 'css/finalizar.css' %}">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         CABEÇALHO
+    ====================================================== -->
+
+    <header class="topo-finalizar">
+
+        <a href="{% url 'inicio' %}" class="voltar">
+            ←
+        </a>
+
+        <div class="logo-finalizar">
+            <img src="{% static 'img/logo.png' %}" alt="Churrasqueira do Gordinho">
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main class="container-finalizar">
+
+        <h1>FINALIZAR PEDIDO</h1>
+
+
+        <!-- =================================================
+             DADOS DO CLIENTE
+        ================================================== -->
+
+        <form method="POST" action="{% url 'finalizar' %}">
+
+            {% csrf_token %}
+
+            <section class="dados-pedido">
+
+                <div class="campo">
+
+                    <label for="nome">
+                        NOME DO CLIENTE
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        placeholder="Ex: João da Silva"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="mesa">
+                        MESA
+                    </label>
+
+                    <input
+                        type="text"
+                        id="mesa"
+                        name="mesa"
+                        placeholder="Ex: 05"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo campo-observacao">
+
+                    <label for="observacoes">
+                        OBSERVAÇÕES (OPCIONAL)
+                    </label>
+
+                    <textarea
+                        id="observacoes"
+                        name="observacoes"
+                        placeholder="Ex: Sem cebola, ponto da carne, etc."
+                    ></textarea>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 ITENS DO PEDIDO
+            ================================================== -->
+
+            <section class="itens-section">
+
+                <h2>ITENS DO PEDIDO</h2>
+
+
+                <div class="tabela-pedido">
+
+                    <!-- CABEÇALHO -->
+
+                    <div class="cabecalho-tabela">
+
+                        <span>ITEM</span>
+
+                        <span>QUANTIDADE</span>
+
+                        <span>VALOR UNIT.</span>
+
+                        <span>SUBTOTAL</span>
+
+                        <span></span>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         PRODUTOS
+                    ================================================== -->
+
+                    {% for item in itens_carrinho %}
+
+                    <div class="item-pedido">
+
+
+                        <!-- PRODUTO -->
+
+                        <div class="produto-finalizar">
+
+                            <div class="imagem-item">
+
+                                {% if item.produto.imagem %}
+
+                                    <img
+                                        src="{{ item.produto.imagem.url }}"
+                                        alt="{{ item.produto.nome }}"
+                                    >
+
+                                {% else %}
+
+                                    <img
+                                        src="{% static 'img/sem-imagem.jpg' %}"
+                                        alt="{{ item.produto.nome }}"
+                                    >
+
+                                {% endif %}
+
+                            </div>
+
+
+                            <span class="nome-item">
+                                {{ item.produto.nome }}
+                            </span>
+
+                        </div>
+
+
+                        <!-- QUANTIDADE -->
+
+                        <div class="quantidade">
+
+                            <form
+                                method="POST"
+                                action="{% url 'carrinho' %}"
+                            >
+
+                                {% csrf_token %}
+
+                                <input
+                                    type="hidden"
+                                    name="produto_id"
+                                    value="{{ item.produto.id }}"
+                                >
+
+                                <input
+                                    type="hidden"
+                                    name="acao"
+                                    value="diminuir"
+                                >
+
+                                <button type="submit" class="botao-quantidade">
+                                    −
+                                </button>
+
+                            </form>
+
+
+                            <span>
+                                {{ item.quantidade }}
+                            </span>
+
+
+                            <form
+                                method="POST"
+                                action="{% url 'carrinho' %}"
+                            >
+
+                                {% csrf_token %}
+
+                                <input
+                                    type="hidden"
+                                    name="produto_id"
+                                    value="{{ item.produto.id }}"
+                                >
+
+                                <input
+                                    type="hidden"
+                                    name="acao"
+                                    value="aumentar"
+                                >
+
+                                <button type="submit" class="botao-quantidade">
+                                    +
+                                </button>
+
+                            </form>
+
+                        </div>
+
+
+                        <!-- PREÇO -->
+
+                        <div class="valor-unitario">
+
+                            R$ {{ item.produto.preco|floatformat:2 }}
+
+                        </div>
+
+
+                        <!-- SUBTOTAL -->
+
+                        <div class="subtotal">
+
+                            R$ {{ item.subtotal|floatformat:2 }}
+
+                        </div>
+
+
+                        <!-- EXCLUIR -->
+
+                        <form
+                            method="POST"
+                            action="{% url 'carrinho' %}"
+                            class="form-excluir"
+                        >
+
+                            {% csrf_token %}
+
+                            <input
+                                type="hidden"
+                                name="produto_id"
+                                value="{{ item.produto.id }}"
+                            >
+
+                            <input
+                                type="hidden"
+                                name="acao"
+                                value="remover"
+                            >
+
+                            <button
+                                type="submit"
+                                class="botao-excluir"
+                                title="Remover item"
+                            >
+                                🗑
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                    {% empty %}
+
+                    <div class="pedido-vazio">
+
+                        <p>
+                            Seu pedido está vazio.
+                        </p>
+
+                        <a href="{% url 'inicio' %}">
+                            VOLTAR AO CARDÁPIO
+                        </a>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <section class="resumo-pedido">
+
+                <div class="total-itens">
+
+                    <span>
+                        TOTAL DE ITENS
+                    </span>
+
+                    <strong>
+                        {{ total_itens }} itens
+                    </strong>
+
+                </div>
+
+
+                <div class="linha-divisoria"></div>
+
+
+                <div class="total-pedido">
+
+                    <span>
+                        TOTAL DO PEDIDO
+                    </span>
+
+                    <strong>
+                        R$ {{ total|floatformat:2 }}
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 FINALIZAR
+            ================================================== -->
+
+            <button
+                type="submit"
+                class="botao-finalizar"
+            >
+
+                <span class="icone-finalizar">
+                    ♧
+                </span>
+
+                FINALIZAR PEDIDO
+
+            </button>
+
+        </form>
+
+    </main>
+
+</body>
+
+</html>

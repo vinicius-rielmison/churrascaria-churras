@@ -1,0 +1,1291 @@
+/* =========================================================
+   FINALIZAR PEDIDO
+   CHURRASQUEIRA DO GORDINHO
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #ffffff;
+
+    color: #111111;
+
+    min-height: 100vh;
+}
+
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.topo-finalizar {
+
+    width: 100%;
+
+    height: 145px;
+
+    background: #080808;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo-finalizar {
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.logo-finalizar img {
+
+    width: 430px;
+
+    max-width: 80vw;
+
+    height: 125px;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   BOTÃO VOLTAR
+========================================================= */
+
+.voltar {
+
+    position: absolute;
+
+    left: 30px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    background: #ff6900;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+
+.voltar:hover {
+
+    background: #e95700;
+
+    transform:
+        translateY(-50%)
+        scale(1.08);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container-finalizar {
+
+    width: 91%;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding: 42px 0 50px;
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.container-finalizar > h1 {
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+    margin-bottom: 38px;
+
+    color: #111111;
+}
+
+
+/* =========================================================
+   DADOS DO PEDIDO
+========================================================= */
+
+.dados-pedido {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 38px 30px;
+
+    margin-bottom: 48px;
+}
+
+
+/* =========================================================
+   CAMPO
+========================================================= */
+
+.campo {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.campo label {
+
+    font-size: 20px;
+
+    font-weight: 500;
+
+    color: #111111;
+}
+
+
+.campo input {
+
+    width: 100%;
+
+    height: 76px;
+
+    border: 2px solid #dddddd;
+
+    border-radius: 12px;
+
+    padding: 0 24px;
+
+    font-size: 20px;
+
+    outline: none;
+
+    color: #222222;
+
+    background: #ffffff;
+
+    transition: 0.2s ease;
+}
+
+
+.campo input:focus {
+
+    border-color: #ff6900;
+
+    box-shadow:
+        0 0 0 3px rgba(255, 105, 0, 0.10);
+}
+
+
+.campo input::placeholder {
+
+    color: #666666;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   OBSERVAÇÕES
+========================================================= */
+
+.campo-observacao {
+
+    grid-column: 1 / -1;
+}
+
+
+.campo textarea {
+
+    width: 100%;
+
+    height: 165px;
+
+    resize: vertical;
+
+    border: 2px solid #dddddd;
+
+    border-radius: 12px;
+
+    padding: 25px;
+
+    font-size: 20px;
+
+    outline: none;
+
+    color: #222222;
+
+    background: white;
+
+    transition: 0.2s ease;
+}
+
+
+.campo textarea:focus {
+
+    border-color: #ff6900;
+
+    box-shadow:
+        0 0 0 3px rgba(255, 105, 0, 0.10);
+}
+
+
+.campo textarea::placeholder {
+
+    color: #666666;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   ITENS
+========================================================= */
+
+.itens-section {
+
+    width: 100%;
+
+    margin-top: 10px;
+}
+
+
+.itens-section h2 {
+
+    font-size: 30px;
+
+    margin-bottom: 24px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   TABELA
+========================================================= */
+
+.tabela-pedido {
+
+    width: 100%;
+
+    border: 2px solid #eeeeee;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    background: white;
+}
+
+
+/* =========================================================
+   CABEÇALHO DA TABELA
+========================================================= */
+
+.cabecalho-tabela {
+
+    min-height: 58px;
+
+    background: #090909;
+
+    color: white;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(350px, 1.8fr)
+        minmax(180px, 0.9fr)
+        minmax(150px, 0.8fr)
+        minmax(150px, 0.8fr)
+        65px;
+
+    align-items: center;
+
+    padding: 0 20px;
+
+    font-size: 17px;
+
+    font-weight: 500;
+}
+
+
+.cabecalho-tabela span:nth-child(2),
+.cabecalho-tabela span:nth-child(3),
+.cabecalho-tabela span:nth-child(4) {
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   ITEM
+========================================================= */
+
+.item-pedido {
+
+    min-height: 125px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(350px, 1.8fr)
+        minmax(180px, 0.9fr)
+        minmax(150px, 0.8fr)
+        minmax(150px, 0.8fr)
+        65px;
+
+    align-items: center;
+
+    padding: 10px 20px;
+
+    border-bottom: 1px solid #eeeeee;
+
+    background: white;
+}
+
+
+.item-pedido:last-child {
+
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   PRODUTO
+========================================================= */
+
+.produto-finalizar {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    min-width: 0;
+}
+
+
+.imagem-item {
+
+    width: 120px;
+
+    height: 94px;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+
+    background: #111111;
+}
+
+
+.imagem-item img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.nome-item {
+
+    font-size: 18px;
+
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    line-height: 1.25;
+}
+
+
+/* =========================================================
+   QUANTIDADE
+========================================================= */
+
+.quantidade {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 16px;
+}
+
+
+.quantidade form {
+
+    margin: 0;
+
+    padding: 0;
+}
+
+
+.botao-quantidade {
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 50%;
+
+    background: #ff6900;
+
+    color: white;
+
+    border: none;
+
+    font-size: 28px;
+
+    line-height: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.botao-quantidade:hover {
+
+    background: #e95700;
+
+    transform: scale(1.08);
+}
+
+
+.quantidade > span {
+
+    min-width: 25px;
+
+    text-align: center;
+
+    font-size: 18px;
+
+    color: #222222;
+}
+
+
+/* =========================================================
+   VALORES
+========================================================= */
+
+.valor-unitario {
+
+    text-align: center;
+
+    font-size: 18px;
+
+    color: #222222;
+}
+
+
+.subtotal {
+
+    text-align: center;
+
+    font-size: 18px;
+
+    color: #222222;
+}
+
+
+/* =========================================================
+   EXCLUIR
+========================================================= */
+
+.form-excluir {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.botao-excluir {
+
+    background: transparent;
+
+    color: #ed1c24;
+
+    border: none;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.botao-excluir:hover {
+
+    transform: scale(1.15);
+
+    color: #c70000;
+}
+
+
+/* =========================================================
+   PEDIDO VAZIO
+========================================================= */
+
+.pedido-vazio {
+
+    padding: 60px 20px;
+
+    text-align: center;
+}
+
+
+.pedido-vazio p {
+
+    font-size: 20px;
+
+    color: #666666;
+
+    margin-bottom: 20px;
+}
+
+
+.pedido-vazio a {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 15px 25px;
+
+    border-radius: 10px;
+
+    background: #ff6900;
+
+    color: white;
+
+    font-weight: bold;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   RESUMO DO PEDIDO
+========================================================= */
+
+.resumo-pedido {
+
+    width: 100%;
+
+    min-height: 115px;
+
+    margin-top: 20px;
+
+    padding: 22px 35px;
+
+    background: #f5f5f5;
+
+    border-radius: 14px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1px 1fr;
+
+    align-items: center;
+
+    gap: 35px;
+}
+
+
+/* =========================================================
+   TOTAL DE ITENS
+========================================================= */
+
+.total-itens {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.total-itens span {
+
+    font-size: 17px;
+
+    color: #111111;
+}
+
+
+.total-itens strong {
+
+    font-size: 23px;
+
+    color: #111111;
+}
+
+
+/* =========================================================
+   DIVISÓRIA
+========================================================= */
+
+.linha-divisoria {
+
+    height: 65px;
+
+    width: 1px;
+
+    background: #dddddd;
+}
+
+
+/* =========================================================
+   TOTAL
+========================================================= */
+
+.total-pedido {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 5px;
+}
+
+
+.total-pedido span {
+
+    font-size: 17px;
+
+    color: #111111;
+}
+
+
+.total-pedido strong {
+
+    font-size: 34px;
+
+    color: #ff6900;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   BOTÃO FINALIZAR
+========================================================= */
+
+.botao-finalizar {
+
+    width: 100%;
+
+    height: 84px;
+
+    margin-top: 20px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #ff6500;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    font-size: 29px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.botao-finalizar:hover {
+
+    background: #e95700;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(255, 105, 0, 0.25);
+}
+
+
+.botao-finalizar:active {
+
+    transform: scale(0.99);
+}
+
+
+.icone-finalizar {
+
+    font-size: 34px;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .container-finalizar {
+
+        width: 94%;
+    }
+
+
+    .cabecalho-tabela {
+
+        grid-template-columns:
+            minmax(280px, 1.5fr)
+            160px
+            130px
+            130px
+            50px;
+    }
+
+
+    .item-pedido {
+
+        grid-template-columns:
+            minmax(280px, 1.5fr)
+            160px
+            130px
+            130px
+            50px;
+    }
+
+
+    .imagem-item {
+
+        width: 100px;
+
+        height: 85px;
+    }
+
+
+    .nome-item {
+
+        font-size: 16px;
+    }
+
+
+    .botao-finalizar {
+
+        font-size: 25px;
+    }
+}
+
+
+/* =========================================================
+   TABLET PEQUENO
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .topo-finalizar {
+
+        height: 120px;
+    }
+
+
+    .logo-finalizar img {
+
+        width: 350px;
+
+        height: 105px;
+    }
+
+
+    .container-finalizar {
+
+        width: 92%;
+
+        padding-top: 30px;
+    }
+
+
+    .container-finalizar > h1 {
+
+        font-size: 27px;
+
+        margin-bottom: 30px;
+    }
+
+
+    .dados-pedido {
+
+        gap: 25px 20px;
+    }
+
+
+    .campo label {
+
+        font-size: 17px;
+    }
+
+
+    .campo input {
+
+        height: 65px;
+
+        font-size: 17px;
+    }
+
+
+    .campo textarea {
+
+        height: 140px;
+
+        font-size: 17px;
+    }
+
+
+    /*
+       A tabela passa a permitir rolagem
+       horizontal para não quebrar o layout.
+    */
+
+    .tabela-pedido {
+
+        overflow-x: auto;
+    }
+
+
+    .cabecalho-tabela,
+    .item-pedido {
+
+        min-width: 850px;
+    }
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .topo-finalizar {
+
+        height: 90px;
+    }
+
+
+    .logo-finalizar img {
+
+        width: 270px;
+
+        height: 82px;
+    }
+
+
+    .voltar {
+
+        left: 12px;
+
+        width: 38px;
+
+        height: 38px;
+
+        font-size: 25px;
+    }
+
+
+    .container-finalizar {
+
+        width: 92%;
+
+        padding: 25px 0 35px;
+    }
+
+
+    .container-finalizar > h1 {
+
+        font-size: 24px;
+
+        margin-bottom: 28px;
+    }
+
+
+    /* ================================================
+       CAMPOS
+    ================================================ */
+
+    .dados-pedido {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 22px;
+
+        margin-bottom: 35px;
+    }
+
+
+    .campo {
+
+        gap: 9px;
+    }
+
+
+    .campo label {
+
+        font-size: 16px;
+
+        font-weight: 600;
+    }
+
+
+    .campo input {
+
+        height: 58px;
+
+        border-radius: 10px;
+
+        padding: 0 16px;
+
+        font-size: 16px;
+    }
+
+
+    .campo textarea {
+
+        height: 125px;
+
+        border-radius: 10px;
+
+        padding: 16px;
+
+        font-size: 16px;
+    }
+
+
+    /* ================================================
+       ITENS
+    ================================================ */
+
+    .itens-section h2 {
+
+        font-size: 24px;
+
+        margin-bottom: 17px;
+    }
+
+
+    .tabela-pedido {
+
+        border-radius: 10px;
+
+        overflow-x: auto;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+
+    .cabecalho-tabela {
+
+        min-height: 50px;
+
+        min-width: 800px;
+
+        font-size: 14px;
+
+        padding: 0 12px;
+    }
+
+
+    .item-pedido {
+
+        min-width: 800px;
+
+        min-height: 105px;
+
+        padding: 8px 12px;
+    }
+
+
+    .imagem-item {
+
+        width: 90px;
+
+        height: 75px;
+
+        border-radius: 8px;
+    }
+
+
+    .produto-finalizar {
+
+        gap: 12px;
+    }
+
+
+    .nome-item {
+
+        font-size: 14px;
+    }
+
+
+    .botao-quantidade {
+
+        width: 34px;
+
+        height: 34px;
+
+        font-size: 23px;
+    }
+
+
+    .quantidade {
+
+        gap: 10px;
+    }
+
+
+    .valor-unitario,
+    .subtotal {
+
+        font-size: 15px;
+    }
+
+
+    /* ================================================
+       RESUMO
+    ================================================ */
+
+    .resumo-pedido {
+
+        min-height: 105px;
+
+        padding: 18px;
+
+        grid-template-columns: 1fr 1px 1fr;
+
+        gap: 15px;
+    }
+
+
+    .total-itens span,
+    .total-pedido span {
+
+        font-size: 12px;
+    }
+
+
+    .total-itens strong {
+
+        font-size: 19px;
+    }
+
+
+    .total-pedido strong {
+
+        font-size: 24px;
+    }
+
+
+    .linha-divisoria {
+
+        height: 55px;
+    }
+
+
+    /* ================================================
+       BOTÃO FINALIZAR
+    ================================================ */
+
+    .botao-finalizar {
+
+        height: 65px;
+
+        border-radius: 10px;
+
+        font-size: 19px;
+
+        gap: 10px;
+    }
+
+
+    .icone-finalizar {
+
+        font-size: 25px;
+    }
+}
+
+
+/* =========================================================
+   CELULAR PEQUENO
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .topo-finalizar {
+
+        height: 80px;
+    }
+
+
+    .logo-finalizar img {
+
+        width: 230px;
+
+        height: 72px;
+    }
+
+
+    .voltar {
+
+        left: 8px;
+
+        width: 34px;
+
+        height: 34px;
+
+        font-size: 22px;
+    }
+
+
+    .container-finalizar {
+
+        width: 94%;
+    }
+
+
+    .container-finalizar > h1 {
+
+        font-size: 21px;
+    }
+
+
+    .resumo-pedido {
+
+        padding: 15px 12px;
+
+        gap: 10px;
+    }
+
+
+    .total-itens strong {
+
+        font-size: 17px;
+    }
+
+
+    .total-pedido strong {
+
+        font-size: 21px;
+    }
+
+
+    .botao-finalizar {
+
+        height: 60px;
+
+        font-size: 16px;
+    }
+
+
+    .icone-finalizar {
+
+        font-size: 22px;
+    }
+}

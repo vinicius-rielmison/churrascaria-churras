@@ -1,0 +1,3404 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Churrascaria do Gordinho</title>
+
+    <link rel="stylesheet" href="{% static 'css/pagina_inicial.css' %}">
+</head>
+
+<body>
+
+    <!-- ==============================
+         CONTROLES
+    =============================== -->
+
+    <input type="checkbox" id="abrir-menu">
+    <input type="checkbox" id="abrir-pesquisa">
+
+
+    <!-- ==============================
+         MENU LATERAL
+    =============================== -->
+
+    <aside class="menu-lateral">
+
+        <label for="abrir-menu" class="fechar-menu">
+            ×
+        </label>
+
+        <div class="perfil-menu">
+
+            <div class="foto-perfil">
+
+                <img
+                    src="{% static 'img/logo2.png' %}"
+                    alt="Churrascaria do Gordinho"
+                >
+
+            </div>
+
+            <h2>
+                Churrascaria<br>
+                do Gordinho
+            </h2>
+
+        </div>
+
+
+        <nav>
+
+            <a href="{% url 'inicio' %}">
+                ⌂ Início
+            </a>
+
+            <a href="{% url 'login_funcionario' %}">
+                👤 Funcionário
+            </a>
+
+            <a href="{% url 'Gerente' %}">
+                👤 Gerente
+            </a>
+
+            <a href="#">
+                ⇥ Sair
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <label for="abrir-menu" class="fundo-menu"></label>
+
+
+    <!-- ==============================
+         TOPO
+    =============================== -->
+
+    <header class="topo">
+
+        <label for="abrir-menu" class="menu-hamburguer">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </label>
+
+
+        <div class="logo-area">
+
+            <img
+                src="{% static 'img/logo2.png' %}"
+                alt="Churrascaria do Gordinho"
+            >
+
+        </div>
+
+
+        <div class="acoes">
+
+            <label
+                for="abrir-pesquisa"
+                class="botao-pesquisa"
+            >
+
+                <span class="icone-pesquisa"></span>
+
+            </label>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==============================
+         PESQUISA
+    =============================== -->
+
+    <section class="area-pesquisa">
+
+        <form method="GET" action="{% url 'inicio' %}">
+
+            <input
+                type="text"
+                name="busca"
+                placeholder="Pesquisar no cardápio..."
+            >
+
+            <button type="submit">
+                🔍
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- ==============================
+         CATEGORIAS
+    =============================== -->
+
+    <nav class="categorias">
+
+        <a href="#combos">
+            COMBOS
+        </a>
+
+        <a href="#carnes">
+            CARNES
+        </a>
+
+        <a href="#espetos">
+            ESPETOS
+        </a>
+
+        <a href="#acompanhamentos">
+            ACOMPANHAMENTOS
+        </a>
+
+        <a href="#porcoes">
+            PORÇÕES
+        </a>
+
+        <a href="#bebidas">
+            BEBIDAS
+        </a>
+
+    </nav>
+
+
+    <main>
+
+
+        <!-- ==============================
+             BANNER
+        =============================== -->
+
+        <section class="banner-principal">
+
+            <img
+                src="{% static 'img/banner4.jpeg' %}"
+                alt="O melhor churrasco da cidade"
+            >
+
+        </section>
+
+
+
+        <!-- ==================================================
+             COMBOS
+        =================================================== -->
+
+        <section
+            class="categoria-section"
+            id="combos"
+        >
+
+            <div class="titulo-secao">
+
+                <h2>
+                    COMBOS
+                </h2>
+
+            </div>
+
+
+            <div class="lista-produtos">
+
+
+                <!-- ALCATRA -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/alcatra2.png' %}"
+                        alt="Alcatra"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Alcatra 
+                        </h3>
+
+                        <p>Acomp: Baião/Arroz branco e batata/Macaxeira</p>
+
+                        <strong>
+                            R$ 97,90
+                        </strong>
+
+                    </div>
+
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- FILÉ DE CARNEIRO -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/file_carneiro.png' %}"
+                        alt="Filé de Carneiro"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Filé de Carneiro
+                        </h3>
+
+                        <p>Acomp: Baião/Arroz branco e batata/Macaxeira</p>
+
+                        <strong>
+                            R$ 114,90
+                        </strong>
+
+                    </div>
+
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- CONTRA FILÉ -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/contra_file.png' %}"
+                        alt="Contra Filé"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Contra Filé
+                        </h3>
+
+                        <p>Acomp: Baião/Arroz branco e batata/Macaxeira</p>
+
+                        <strong>
+                            R$ 97,90
+                        </strong>
+
+                    </div>
+
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- FRANGO -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/frango.png' %}"
+                        alt="Frango"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Frango
+                        </h3>
+
+                        <p>Acomp: Baião/Arroz branco e batata/Macaxeira</p>
+
+                        <strong>
+                            R$ 74,50
+                        </strong>
+
+                    </div>
+
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- CUPIM -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/cupim.png' %}"
+                        alt="Cupim"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Cupim
+                        </h3>
+
+                        <p>Acomp: Baião/Arroz branco e batata/Macaxeira</p>
+
+                        <strong>
+                            R$ 103,90
+                        </strong>
+
+                    </div>
+
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- CARNE DO SOL -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/carne_do_sol.png' %}"
+                        alt="Carne do Sol"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Carne do Sol
+                        </h3>
+
+                        <p>Acomp: Baião/Arroz branco e batata/Macaxeira</p>
+
+                        <strong>
+                            R$ 90,70
+                        </strong>
+
+                    </div>
+
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- FILÉ DE FRANGO -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/file_frango.png' %}"
+                        alt="Filé de Frango"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Filé de Frango
+                        </h3>
+
+                        <p>Acomp: Baião/Arroz branco e batata/Macaxeira</p>
+
+                        <strong>
+                            R$ 71,70
+                        </strong>
+
+                    </div>
+
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- MAMINHA -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/maminha.png' %}"
+                        alt="Maminha"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Maminha
+                        </h3>
+
+                        <p>Acomp: Baião/Arroz branco e batata/Macaxeira</p>
+
+                        <strong>
+                            R$ 90,70
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- MAMINHA ARGENTINA -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/maminha_argentina.png' %}"
+                        alt="Maminha Argentina"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Maminha Argentina
+                        </h3>
+
+                        <p>Acomp: Baião/Arroz branco e batata/Macaxeira</p>
+
+                        <strong>
+                            R$ 114,40
+                        </strong>
+
+                    </div>
+
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PICANHA ARGENTINA -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/picanha_argentina.png' %}"
+                        alt="Picanha Argentina"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Picanha Argentina
+                        </h3>
+
+                        <p>Acomp: Baião/Arroz branco e batata/Macaxeira</p>
+
+                        <strong>
+                            R$ 148,70
+                        </strong>
+
+                    </div>
+
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PICANHA NACIONAL -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/picanha_nacional.png' %}"
+                        alt="Picanha Nacional"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Picanha Nacional
+                        </h3>
+
+                        <p>Acomp: Baião/Arroz branco e batata/Macaxeira</p>
+
+                        <strong>
+                            R$ 124,90
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PICANHA SUÍNA -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/picanha_suina.png' %}"
+                        alt="Picanha Suína"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Picanha Suína
+                        </h3>
+
+                        <p>Acomp: Baião/Arroz branco e batata/Macaxeira</p>
+
+                        <strong>
+                            R$ 81,10
+                        </strong>
+
+                    </div>
+
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             CARNES
+        =================================================== -->
+
+        <section
+            class="categoria-section"
+            id="carnes"
+        >
+
+            <div class="titulo-secao">
+
+                <h2>
+                    CARNES
+                </h2>
+
+            </div>
+
+
+            <div class="lista-produtos">
+
+
+                <!-- CARNE DO SOL 300G -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/carne_do_sol.png' %}"
+                        alt="Carne do Sol"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Carne do Sol 300g
+                        </h3>
+
+                        <strong>
+                            R$ 27,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- CARNE DO SOL 500G -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/carne_do_sol.png' %}"
+                        alt="Carne do Sol"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Carne do Sol 500g
+                        </h3>
+
+                        <strong>
+                            R$ 45,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PICANHA ARGENTINA 300G -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/picanha_argentina.png' %}"
+                        alt="Picanha Argentina"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Picanha Argentina 300g
+                        </h3>
+
+                        <strong>
+                            R$ 55,80
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PICANHA ARGENTINA 500G -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/picanha_argentina.png' %}"
+                        alt="Picanha Argentina"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Picanha Argentina 500g
+                        </h3>
+
+                        <strong>
+                            R$ 93,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PICANHA NACIONAL 300G -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/picanha_nacional.png' %}"
+                        alt="Picanha Nacional"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Picanha Nacional 300g
+                        </h3>
+
+                        <strong>
+                            R$ 39,00
+                        </strong>
+
+                    </div>
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+                </article>
+
+
+
+                <!-- PICANHA NACIONAL 500G -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/picanha_nacional.png' %}"
+                        alt="Picanha Nacional"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Picanha Nacional 500g
+                        </h3>
+
+                        <strong>
+                            R$ 65,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <button type="button">−</button>
+                        <span>0</span>
+                        <button type="button">+</button>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- COSTELA DE PORCO -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/costela_porco.png' %}"
+                        alt="Costela de Porco"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Costela de Porco
+                        </h3>
+
+                        <strong>
+                            R$ 79,10
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- LOMBINHO DE PORCO -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/lombinho_porco.png' %}"
+                        alt="Lombinho de Porco"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Lombinho de Porco
+                        </h3>
+
+                        <strong>
+                            R$ 79,10
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- COSTELA DE CARNEIRO -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/costela_carneiro.png' %}"
+                        alt="Costela de Carneiro"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Costela de Carneiro
+                        </h3>
+
+                        <strong>
+                            R$ 79,10
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- FRANGO ASSADO -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/frango_assado.png' %}"
+                        alt="Frango Assado"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Frango Assado
+                        </h3>
+
+                        <strong>
+                            R$ 94,90
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- FILÉ MIGNON -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/file_mignon.png' %}"
+                        alt="Filé Mignon"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Filé Mignon
+                        </h3>
+
+                        <strong>
+                            R$ 137,80
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- FILÉ DE CARNE -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/file_carne.png' %}"
+                        alt="Filé de Carne"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Filé de Carne
+                        </h3>
+
+                        <strong>
+                            R$ 137,80
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             ESPETOS
+        =================================================== -->
+
+        <section
+            class="categoria-section"
+            id="espetos"
+        >
+
+            <div class="titulo-secao">
+
+                <h2>
+                    ESPETOS
+                </h2>
+
+            </div>
+
+
+            <div class="lista-produtos">
+
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/espetinho_carne.png' %}"
+                        alt="Carne"
+                    >
+
+                    <div class="informacoes-produto">
+                        <h3>Carne</h3>
+                        <strong>R$ 8,00</strong>
+                    </div>
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/espetinho_suino.png' %}"
+                        alt="Suíno"
+                    >
+
+                    <div class="informacoes-produto">
+                        <h3>Suíno</h3>
+                        <strong>R$ 8,00</strong>
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/espetinho_azinha.png' %}"
+                        alt="Azinha"
+                    >
+
+                    <div class="informacoes-produto">
+                        <h3>Azinha</h3>
+                        <strong>R$ 8,00</strong>
+                    </div>
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/espetinho_coxinha_asa.png' %}"
+                        alt="Coxinha da Asa"
+                    >
+
+                    <div class="informacoes-produto">
+                        <h3>Coxinha da Asa</h3>
+                        <strong>R$ 8,00</strong>
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+                </article>
+
+
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/espetinho_moela.png' %}"
+                        alt="Moela"
+                    >
+
+                    <div class="informacoes-produto">
+                        <h3>Moela</h3>
+                        <strong>R$ 8,00</strong>
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/espetinho_coracao.png' %}"
+                        alt="Coração"
+                    >
+
+                    <div class="informacoes-produto">
+                        <h3>Coração</h3>
+                        <strong>R$ 8,00</strong>
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/espetinho_file_frango.png' %}"
+                        alt="Filé de Frango"
+                    >
+
+                    <div class="informacoes-produto">
+                        <h3>Filé de Frango</h3>
+                        <strong>R$ 8,00</strong>
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/espetinho_frango_bacon.png' %}"
+                        alt="Frango com Bacon"
+                    >
+
+                    <div class="informacoes-produto">
+                        <h3>Frango com Bacon</h3>
+                        <strong>R$ 8,00</strong>
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/espetinho_carne_bacon.png' %}"
+                        alt="Carne com Bacon"
+                    >
+
+                    <div class="informacoes-produto">
+                        <h3>Carne com Bacon</h3>
+                        <strong>R$ 8,00</strong>
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/espetinho_tripa_suina.png' %}"
+                        alt="Tripa Suína"
+                    >
+
+                    <div class="informacoes-produto">
+                        <h3>Tripa Suína</h3>
+                        <strong>R$ 8,00</strong>
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+                </article>
+
+
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/espetinho_romeu_julieta.png' %}"
+                        alt="Romeu e Julieta"
+                    >
+
+                    <div class="informacoes-produto">
+                        <h3>Romeu e Julieta</h3>
+                        <strong>R$ 8,00</strong>
+                    </div>
+
+                     <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/espetinho_queijo_bacon.png' %}"
+                        alt="Queijo com Bacon"
+                    >
+
+                    <div class="informacoes-produto">
+                        <h3>Queijo com Bacon</h3>
+                        <strong>R$ 8,00</strong>
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/espetinho_queijo_melaco.png' %}"
+                        alt="Queijo com Melaço"
+                    >
+
+                    <div class="informacoes-produto">
+                        <h3>Queijo com Melaço</h3>
+                        <strong>R$ 8,00</strong>
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+                </article>
+
+
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/espetinho_ovo_bacon.png' %}"
+                        alt="Ovo com Bacon"
+                    >
+
+                    <div class="informacoes-produto">
+                        <h3>Ovo com Bacon</h3>
+                        <strong>R$ 8,00</strong>
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/espetinho_costelinha_suina.png' %}"
+                        alt="Costelinha Suína"
+                    >
+
+                    <div class="informacoes-produto">
+                        <h3>Costelinha Suína</h3>
+                        <strong>R$ 8,00</strong>
+                    </div>
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             ACOMPANHAMENTOS
+        =================================================== -->
+
+        <section
+            class="categoria-section"
+            id="acompanhamentos"
+        >
+
+            <div class="titulo-secao">
+
+                <h2>
+                    ACOMPANHAMENTOS
+                </h2>
+
+            </div>
+
+
+            <div class="lista-produtos">
+
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/baiao.png' %}"
+                        alt="Baião"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Baião
+                        </h3>
+
+                        <strong>
+                            R$ 15,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/baiao_a_moda.png' %}"
+                        alt="Baião a Moda"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Baião Cremoso
+                        </h3>
+
+                        <strong>
+                            R$ 20,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/arroz.png' %}"
+                        alt="Arroz"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Arroz
+                        </h3>
+
+                        <strong>
+                            R$ 14,40
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             PORÇÕES
+        =================================================== -->
+
+        <section
+            class="categoria-section"
+            id="porcoes"
+        >
+
+            <div class="titulo-secao">
+
+                <h2>
+                    PORÇÕES
+                </h2>
+
+            </div>
+
+
+            <div class="lista-produtos">
+
+
+                <!-- BAIÃO PEQUENO -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/baiao_dois_normal.png' %}"
+                        alt="Baião Pequeno"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Baião Pequeno
+                        </h3>
+
+                        <strong>
+                            R$ 8,00
+                        </strong>
+
+                    </div>
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- BAIÃO GRANDE -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/baiao_dois_normal.png' %}"
+                        alt="Baião Grande"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Baião Grande
+                        </h3>
+
+                        <strong>
+                            R$ 20,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- BAIÃO CREMOSO PEQUENO -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/baiao_cremoso.png' %}"
+                        alt="Baião Cremoso Pequeno"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Baião Cremoso Pequeno
+                        </h3>
+
+                        <strong>
+                            R$ 12,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- BAIÃO CREMOSO GRANDE -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/baiao_cremoso.png' %}"
+                        alt="Baião Cremoso Grande"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Baião Cremoso Grande
+                        </h3>
+
+                        <strong>
+                            R$ 20,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PORÇÃO BATATA -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/porcao_batata.png' %}"
+                        alt="Porção Batata"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Batata
+                        </h3>
+
+                        <strong>
+                            R$ 15,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- PORÇÃO MACAXEIRA -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/porcao_macaxeira.png' %}"
+                        alt="Porção Macaxeira"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Macaxeira
+                        </h3>
+
+                        <strong>
+                            R$ 15,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             BEBIDAS
+        =================================================== -->
+
+        <section
+            class="categoria-section"
+            id="bebidas"
+        >
+
+            <div class="titulo-secao">
+
+                <h2>
+                    BEBIDAS
+                </h2>
+
+            </div>
+
+
+            <div class="lista-produtos">
+
+
+                <!-- CAIPIRINHA -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/caipirinha.png' %}"
+                        alt="Caipirinha"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Caipirinha
+                        </h3>
+
+                        <strong>
+                            R$ 9,99
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- HEINEKEN 330ML -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/heineken_330.png' %}"
+                        alt="Heineken 330ml"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Heineken 330ml
+                        </h3>
+
+                        <strong>
+                            R$ 9,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- HEINEKEN 600ML -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/heineken_600.png' %}"
+                        alt="Heineken 600ml"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Heineken 600ml
+                        </h3>
+
+                        <strong>
+                            R$ 15,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- STELLA ARTOIS -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/stella_artois.png' %}"
+                        alt="Stella Artois"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Stella Artois
+                        </h3>
+
+                        <strong>
+                            R$ 8,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- BUDWEISER -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/budweiser.png' %}"
+                        alt="Budweiser"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Budweiser
+                        </h3>
+
+                        <strong>
+                            R$ 8,00
+                        </strong>
+
+                    </div>
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ICE CABARÉ -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/ice_cabare.png' %}"
+                        alt="Ice Cabaré"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Ice Cabaré
+                        </h3>
+
+                        <strong>
+                            R$ 12,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- ÁGUA COM GÁS -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/agua_com_gas.png' %}"
+                        alt="Água com Gás"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Água com Gás
+                        </h3>
+
+                        <strong>
+                            R$ 3,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- SUCO DE LARANJA COPO -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/suco_laranja.png' %}"
+                        alt="Suco de Laranja"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Suco de Laranja 500ml
+                        </h3>
+
+                        <strong>
+                            R$ 6,00
+                        </strong>
+
+                    </div>
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- SUCO DE LARANJA JARRA -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/suco_laranja_jarra.png' %}"
+                        alt="Suco de Laranja Jarra"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Suco de Laranja 1L
+                        </h3>
+
+                        <strong>
+                            R$ 13,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+                        <button type="button">−</button>
+                        <span>0</span>
+                        <button type="button">+</button>
+                    </div>
+
+                </article>
+
+
+
+                <!-- REDBULL -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/redbull.png' %}"
+                        alt="Redbull"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Redbull
+                        </h3>
+
+                        <strong>
+                            R$ 12,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- DEVASSA -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/cerveja_lata_devassa.png' %}"
+                        alt="Cerveja em Lata Devassa"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Devassa
+                        </h3>
+
+                        <strong>
+                            R$ 5,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+                <!-- COCA-COLA 600ML -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/coca_cola_600.png' %}"
+                        alt="Coca-Cola 600ml"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Coca-Cola 600ml
+                        </h3>
+
+                        <strong>
+                            R$ 5,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+                <!-- COCA-COLA 1L -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/coca_cola_1l.png' %}"
+                        alt="Coca-Cola 1L"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Coca-Cola 1L
+                        </h3>
+
+                        <strong>
+                            R$ 12,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+
+
+                <!-- SPRITE 1L -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/sprite_1l.png' %}"
+                        alt="Sprite 1L"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Sprite 1L
+                        </h3>
+
+                        <strong>
+                            R$ 12,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+
+                <!-- FANTA UVA 1L -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/fanta_uva_1l.png' %}"
+                        alt="Fanta Uva 1L"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Fanta Uva 1L
+                        </h3>
+
+                        <strong>
+                            R$ 12,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+
+                <!-- FANTA LARANJA 1L -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/fanta_laranja_1l.png' %}"
+                        alt="Fanta Laranja 1L"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            Fanta Laranja 1L
+                        </h3>
+
+                        <strong>
+                            R$ 12,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                            
+                        </form>
+
+                    </div>
+
+                </article>
+
+
+
+
+                <!-- SÃO GERALDO 1L -->
+
+                <article class="card-categoria">
+
+                    <img
+                        src="{% static 'img/sao_geraldo_1l.png' %}"
+                        alt="São Geraldo 1L"
+                    >
+
+                    <div class="informacoes-produto">
+
+                        <h3>
+                            São Geraldo 1L
+                        </h3>
+
+                        <strong>
+                            R$ 12,00
+                        </strong>
+
+                    </div>
+
+                    <div class="controle-quantidade">
+
+                        <form method="POST" action="{% url 'diminuir_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                −
+                            </button>
+                        </form>
+
+                        <span>
+                            {{ produto.quantidade }}
+                        </span>
+
+                        <form method="POST" action="{% url 'aumentar_quantidade' produto.id %}">
+                            {% csrf_token %}
+
+                            <button type="submit">
+                                +
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==============================
+         BOTÃO FAZER PEDIDO
+    =============================== -->
+
+    <nav class="menu-inferior">
+
+        <a
+            href="{% url 'finalizar' %}"
+            class="botao-fazer-pedido"
+        >
+            FAZER PEDIDO
+        </a>
+
+    </nav>
+
+
+</body>
+
+</html>
